@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{8FFB629D-F513-41CE-95D2-7ECE97B6EEEC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{283D74FE-A772-439A-A95E-E2FEDB4E51BD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ManagedOpenSSLiOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>ManagedOpenSSL-iOS</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="NativeLibraries\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="Core\Asn1DateTime.cs" />
+    <Compile Include="Core\Asn1Encoding.cs" />
+    <Compile Include="Core\Asn1Integer.cs" />
+    <Compile Include="Core\Asn1Object.cs" />
+    <Compile Include="Core\Asn1String.cs" />
+    <Compile Include="Core\BIO.cs" />
+    <Compile Include="Core\Base.cs" />
+    <Compile Include="Core\BigNumber.cs" />
+    <Compile Include="Core\Crypto.cs" />
+    <Compile Include="Core\MemoryTracker.cs" />
+    <Compile Include="Core\Native.cs" />
+    <Compile Include="Core\Objects.cs" />
+    <Compile Include="Core\OpenSslException.cs" />
+    <Compile Include="Core\Password.cs" />
+    <Compile Include="Core\Random.cs" />
+    <Compile Include="Core\Stack.cs" />
+    <Compile Include="Core\Threading.cs" />
+    <Compile Include="Core\Version.cs" />
+    <Compile Include="Crypto\Cipher.cs" />
+    <Compile Include="Crypto\CryptoKey.cs" />
+    <Compile Include="Crypto\DH.cs" />
+    <Compile Include="Crypto\DSA.cs" />
+    <Compile Include="Crypto\HMAC.cs" />
+    <Compile Include="Crypto\MessageDigest.cs" />
+    <Compile Include="Crypto\RSA.cs" />
+    <Compile Include="Crypto\EC\BuiltinCurve.cs" />
+    <Compile Include="Crypto\EC\DSASignature.cs" />
+    <Compile Include="Crypto\EC\Group.cs" />
+    <Compile Include="Crypto\EC\Key.cs" />
+    <Compile Include="Crypto\EC\Method.cs" />
+    <Compile Include="Crypto\EC\Point.cs" />
+    <Compile Include="SSL\AlpnException.cs" />
+    <Compile Include="SSL\ConnectionEnd.cs" />
+    <Compile Include="SSL\Enums.cs" />
+    <Compile Include="SSL\Protocols.cs" />
+    <Compile Include="SSL\Ssl.cs" />
+    <Compile Include="SSL\SslCipher.cs" />
+    <Compile Include="SSL\SslContext.cs" />
+    <Compile Include="SSL\SslMethod.cs" />
+    <Compile Include="SSL\SslStream.cs" />
+    <Compile Include="SSL\SslStreamBase.cs" />
+    <Compile Include="SSL\SslStreamClient.cs" />
+    <Compile Include="SSL\SslStreamServer.cs" />
+    <Compile Include="SSL\Extensions\Alpn.cs" />
+    <Compile Include="SSL\Extensions\EnumExtensions.cs" />
+    <Compile Include="SSL\Extensions\Errors.cs" />
+    <Compile Include="SSL\Extensions\SNI.cs" />
+    <Compile Include="X509\Configuration.cs" />
+    <Compile Include="X509\Identity.cs" />
+    <Compile Include="X509\PKCS12.cs" />
+    <Compile Include="X509\PKCS7.cs" />
+    <Compile Include="X509\VerifyResult.cs" />
+    <Compile Include="X509\X509Certificate.cs" />
+    <Compile Include="X509\X509CertificateAuthority.cs" />
+    <Compile Include="X509\X509CertificateInfo.cs" />
+    <Compile Include="X509\X509Chain.cs" />
+    <Compile Include="X509\X509Extension.cs" />
+    <Compile Include="X509\X509Name.cs" />
+    <Compile Include="X509\X509Object.cs" />
+    <Compile Include="X509\X509Request.cs" />
+    <Compile Include="X509\X509Store.cs" />
+    <Compile Include="X509\X509StoreContext.cs" />
+    <Compile Include="NativeLibraries\libssl.linkwith.cs">
+      <DependentUpon>libssl.a</DependentUpon>
+    </Compile>
+    <Compile Include="NativeLibraries\libcrypto.linkwith.cs">
+      <DependentUpon>libcrypto.a</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="NativeLibraries\libssl.a">
+      <LogicalName>libssl.a</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingNativeLibrary Include="NativeLibraries\libcrypto.a" />
+  </ItemGroup>
+</Project>
