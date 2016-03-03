@@ -1171,6 +1171,10 @@ namespace OpenSSL.Core
 			pem_password_cb cb,
 			IntPtr user_data);
 
+        [DllImport(DLLNAME, CallingConvention = CallingConvention.Cdecl)]
+        public extern static int PKCS7_verify(IntPtr p7, IntPtr certsStack, IntPtr store,
+            IntPtr bioIn, IntPtr bioOut, int flags);
+
 		#endregion
 
 		#region X509_AUX

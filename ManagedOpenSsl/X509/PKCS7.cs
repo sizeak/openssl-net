@@ -155,6 +155,23 @@ namespace OpenSSL.X509
 
 		#endregion
 
+        #region Public Methods
+
+        public bool Verify(X509Store store)
+        {
+            int verified = 0;
+
+            using (var payload = BIO.MemoryBuffer())
+            {
+                verified = Native.PKCS7_verify(Handle, IntPtr.Zero, 
+                    store.Handle, IntPtr.Zero, payload.Handle, 0);
+            }
+
+            return (verified == 1);
+        }
+
+        #endregion //Public Methods
+
 		#region Helpers
 
 		private Core.Stack<X509Certificate> GetStackFromSigned()
