@@ -99,8 +99,8 @@ namespace OpenSSL.Core
 		/// This is the name of the DLL that P/Invoke loads and tries to bind all of
 		/// these native functions to.
 		/// </summary>
-		const string DLLNAME = "libeay32";
-		const string SSLDLLNAME = "ssleay32";
+		const string DLLNAME = "__Internal";
+		const string SSLDLLNAME = "__Internal";
 
 		#region Delegates
 
